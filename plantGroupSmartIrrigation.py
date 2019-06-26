@@ -1,4 +1,4 @@
-#############Post Function###############
+###MultiThread PlantGroup Smart Irrigation###
 # Copyright (C) 2019 PLANT GROUP, LLC | www.plantgroup.co
 
 #This program is free software: you can redistribute it and/or modify
@@ -14,26 +14,22 @@
 #You should have received a copy of the GNU General Public License
 #along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import datetime
-import requests
+import threading
+import time
+import json
 
-def postStart(timestamp,valve):
-    post=requests.post("http://app.plantgroup.co/api/valves/"+str(valve)+"/record_event/"
-                       , data={"event_type":1,"created_at":timestamp})
+from getConfigJSON import intervals
+from serialJSONFunction import serialRead
+from tsUpdate import tsUpdate
+from wateringProtocol import watering
 
-def postStop(timestamp,valve):
-    post=requests.post("http://app.plantgroup.co/api/valves/"+str(valve)+"/record_event/"
-                       , data={"event_type":2,"created_at":timestamp})
+configGrab = threading.Thread(name='configGrab',target=intervals)
+probeRead = threading.Thread(name='probeRead',target=serialRead)
+irrigate = threading.Thread(name='irrigate',target=watering)
+ts = threading.Thread(name='dataUpdate',target=tsUpdate)
 
-def postStamp(valve,event):
-    global epoch
-    epoch = datetime.datetime.now().timestamp()
-    print(epoch)
 
-    funcArr = {1: postStart,
-               2: postStop}
-
-    run=funcArr.get(event)
-    run(epoch,valve)
-    
-    
+configGrab.start() #comment out for off the grid version
+probeRead.start()
+irrigate.start() #need to open 'wateringProtocol' to comment out start/stop
+ts.start() #comment out for off the grid version

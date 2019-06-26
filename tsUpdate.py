@@ -1,11 +1,13 @@
 #####Thingspeak Function#####
-####W. Weiner 08-Oct-2018####
-
 import urllib.request
 import json
 import time
 
-tsAPI='SMQ9OUC4A53N22JE'
+#Backyard
+#tsAPI='SMQ9OUC4A53N22JE'
+
+#Teralytic
+tsAPI='9KTNBVCOWOBEZ79B'
 
 def tsUpdate():
     while True:
@@ -20,9 +22,7 @@ def tsUpdate():
             file2.close()
             tsUpdate = jsonFormat['tsUpdate']
             moist = str(serVars['moisture'])
-            temp = str(serVars['temp'])
-            bat = str(serVars['bat'])
-            tsURL = 'https://api.thingspeak.com/update?api_key='+tsAPI+'&field1='+moist+'&field2='+bat+'&field3='+temp
+            tsURL = 'https://api.thingspeak.com/update?api_key='+tsAPI+'&field1='+moist
             urllib.request.urlopen(tsURL)
             print(tsUpdate)
             print("thingspeak updated")

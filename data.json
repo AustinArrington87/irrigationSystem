@@ -1,1 +1,1 @@
-{"start": [300.0, 64500.0], "soilThresh": "10", "tsUpdate": 1200, "waterDelay": 7200, "stop": [56400.0, 82500.0], "waterDuration": 300, "serverTime": 51244.0, "sysClock": 60}
+{"tsUpdate": 1200, "sysClock": 60, "soilThresh": "80", "waterDelay": 3540, "waterDuration": 900, "serverTime": 55322.0, "stop": [7800.0], "start": [0.0]}

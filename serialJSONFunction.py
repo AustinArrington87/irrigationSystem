@@ -88,9 +88,7 @@ def getProbeMoisture():
             'Authorization': 'Bearer '+str(accessToken),
             'x-api-key': str(apiKey)	
     }
-    
-    #replace 'alpha/v1' with 'latest'
-    
+
     r = requests.get('https://api.teralytic.io/alpha/v1/organizations/'+str(organization)+'/readings?start_date='+str(startYear)+'-'+str(startMonth)+'-'+str(startDay)+'T'+str(startHour)+'%3A'+str(startMonth)+'%3A00-00%3A00'+'&end_date='+str(endYear)+'-'+str(endMonth)+'-'+str(endDay)+'T'+str(endHour)+'%3A'+str(endMonth)+'%3A00-00%3A00'+'&probes='+str(probes)+'&extended=true', params={}, headers = headers)
     #print(r)
     dic = r.json()
@@ -116,8 +114,10 @@ def getProbeMoisture():
     try:
         vwc6Avg = statistics.mean(vwc6List)
         vwc6Avg = vwc6Avg*100
+        print("Soil Moisture Value (successful): "+str(vwc6Avg))
     except:
-        vwc6Avg = None
+        vwc6Avg = 50 #probe not working if you get this part of code
+        print("Soil Moisture Value (NOT successful): "+str(vwc6Avg))
 
     print(vwc6Avg)
 
@@ -141,4 +141,3 @@ def serialRead():
         except:
             print("Moisture Read Error")
         time.sleep(systemCycle*5)
-            

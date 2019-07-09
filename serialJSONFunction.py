@@ -24,10 +24,10 @@ from datetime import datetime, timezone, timedelta
 def getProbeMoisture():
     #teralytic sensor & API configuration
     token_url = "https://auth.teralytic.io/token"
-    client_id = 'ENTER_CLIENT_ID'
-    client_secret = 'ENTER_CLIENT_SECRET'
+    client_id = '487o6q7tj7ep9bvdg9ar6h4th0'
+    client_secret = '7cebe3dgs8rgfbk0mknlsotvneuih4c29mmb1kf0ugpodih3h3h'
     # soil API call
-    apiKey = 'ENTER_API_KEY'
+    apiKey = 'arIu2Jgvjc669S40Gzqtq2t6eZtf3nnr1dpX6Ha0'
 
     #step A, B - single call with client credentials as the basic auth header - will return access_token
     data = {'grant_type': 'client_credentials'}

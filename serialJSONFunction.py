@@ -103,7 +103,13 @@ def getProbeMoisture():
             vwc6 = readings[0]['moisture']
             vwc6List.append(vwc6)
     except:
-        vwc6 = 0.50 #default value if probe is offline
+        try:
+            with open('serial.json') as json_file:
+                moistureData = json.load(json_file)
+                vwc6 = moistureData["moisture"]
+        except:
+            vwc6 = None
+
         vwc6List.append(vwc6)
         print("Issue with probe.  Error: "+str(r))
 

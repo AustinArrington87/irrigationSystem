@@ -122,7 +122,7 @@ def getProbeMoisture():
         vwc6Avg = vwc6Avg*100
         print("Soil Moisture Value (successful): "+str(vwc6Avg))
     except:
-        vwc6Avg = 50 #probe not working if you get this part of code
+        vwc6Avg = None #probe not working if you get this part of code
         print("Soil Moisture Value (NOT successful): "+str(vwc6Avg))
 
     print(vwc6Avg)

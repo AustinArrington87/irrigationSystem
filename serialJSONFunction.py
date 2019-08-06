@@ -124,6 +124,14 @@ def getProbeMoisture():
     except:
         vwc6Avg = None #probe not working if you get this part of code
         print("Soil Moisture Value (NOT successful): "+str(vwc6Avg))
+        
+    try:
+        if vwc6Avg > 100:
+            with open('serial.json') as json_file:
+                vwc6Avg = json.load(json_file)
+                vwc6Avg = vwc6Avg["moisture"]
+    except:
+        pass
 
     print(vwc6Avg)
 

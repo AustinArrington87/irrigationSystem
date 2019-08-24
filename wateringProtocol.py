@@ -22,7 +22,7 @@ from postFunction import postStart,postStop,postStamp
 from colorama import Fore,Back,Style
 
 #mcuID for PG Valve (On/off Events)
-valve = "Teralytic-1-Valve"
+valve = "Teralytic-1"
 
 motorPin = 11 #need to update pin to which will control motor
 

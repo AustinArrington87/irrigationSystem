@@ -80,8 +80,12 @@ def getProbeMoisture():
     #probes = '0004a30b00215aa1'
 
     #NuWay CoOp
-    organization = '7e9e3c4b-5bda-474a-848a-609a53a0a197'
-    probes = '0004a30b002166b0'
+    #organization = '7e9e3c4b-5bda-474a-848a-609a53a0a197'
+    #probes = '0004a30b002166b0'
+    
+    #RIL
+    organization = '6b28ee93-cc97-4d7e-9095-20b3d2503fca'
+    probes = '0004a30b002385b3'
 
     headers = {
             'Accept': 'application/json',

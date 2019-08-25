@@ -2,17 +2,30 @@
 Raspberry Pi code for automated irrigation system 
 
 MANUAL START UP ==> Trigger script which threads together the system's files
+
 $ cd ~/Desktop/smartIrrigation
+
 $ sudo python3.6 plantGroupSmartIrrigation.py
 
-RUN SCRIPT ON BOOTUP 
+====================================================
+
+RUN SCRIPT ON BOOTUP ==> Update Pi so that irrigationSystem starts on boot
 $ sudo crontab -e
 @reboot sudo python3.6 /home/pi/Desktop/irrigationSystem/plantGroupSmarrtIrrigation.py &
 
 
-REST API 
+====================================================
+
+REST API ==> Add zones, controllers, valves, and probes for your irrigationSystem
 http://app.plantgroup.co/api/
 - create valves, probes, and controllers at app.plantgroup.co
+- Add Thingspeak Write API Key to tsUpdate.py
+- Add Valve MCUid (http://app.plantgroup.co/admin/plant/valve/) to wateringProtocol.py
+- TS Valve Channel ID to use  in  PG web app: 820394
+- Add Controller MCUid (http://app.plantgroup.co/admin/plant/controller) into irrigation config API endpoint ("http://app.plantgroup.co/api/controllers/<controller_MCUid>/config/") in order to program irrigation automation paramters from the web app into data.json (the config file on Pi)
+- Add Thingspeak Channel ID to Probe (http://app.plantgroup.co/admin/plant/probe/)
+- If getting soil moisture data from API, update params in serialJSONFunction.py (i.e. 'https://api.teralytic.io/alpha/v1/' for Teralytic sensor API)
+
 
 # RASPBERRY PI ENVIRONMENT INSTALLATION 
 

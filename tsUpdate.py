@@ -3,20 +3,21 @@ import urllib.request
 import json
 import time
 
+# ENTER THINGSPEAK WRITE API KEY
 #Backyard
 #tsAPI='SMQ9OUC4A53N22JE'
 
-#Teralytic
+#Teralytic 
 tsAPI='9KTNBVCOWOBEZ79B'
 
 def tsUpdate():
     while True:
         try:
-            file=open('data.json','r')
+            file=open('/home/pi/Desktop/irrigationSystem/data.json','r')
             data1=file.read()
             jsonFormat=json.loads(data1)
             file.close()
-            file2=open('serial.json','r')
+            file2=open('/home/pi/Desktop/irrigationSystem/serial.json','r')
             data2=file2.read()
             serVars=json.loads(data2)
             file2.close()

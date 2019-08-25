@@ -108,7 +108,7 @@ def getProbeMoisture():
             vwc6List.append(vwc6)
     except:
         try:
-            with open('serial.json') as json_file:
+            with open('/home/pi/Desktop/irrigationSystem/serial.json') as json_file:
                 moistureData = json.load(json_file)
                 vwc6 = moistureData["moisture"]
         except:
@@ -131,7 +131,7 @@ def getProbeMoisture():
         
     try:
         if vwc6Avg > 100:
-            with open('serial.json') as json_file:
+            with open('/home/pi/Desktop/irrigationSystem/serial.json') as json_file:
                 vwc6Avg = json.load(json_file)
                 vwc6Avg = vwc6Avg["moisture"]
     except:
@@ -148,19 +148,19 @@ def serialRead():
         try:
             getProbeMoisture()
             try:
-                file=open('data.json','r')
+                file=open('/home/pi/Desktop/irrigationSystem/data.json','r')
                 data1=file.read()
                 jsonFormat=json.loads(data1)
                 file.close()
                 systemCycle = jsonFormat['sysClock']
                 print(systemCycle)
-                with open('serial.json', 'w') as fp:
+                with open('/home/pi/Desktop/irrigationSystem/serial.json', 'w') as fp:
                     json.dump(moistureSample, fp)
                     print("Wrote moisture value to serial.json")
             except:
                 print("Moisture Read Error")
         except Exception as excep3:
-                file5=open('terraProbeError.txt','w')
+                file5=open('/home/pi/Desktop/irrigationSystem/terraProbeError.txt','w')
                 file5.write(str(excep2))
                 file5.close()      
         time.sleep(systemCycle*5)

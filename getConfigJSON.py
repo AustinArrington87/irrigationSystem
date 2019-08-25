@@ -36,7 +36,7 @@ def intervals():
                         except Exception as err:
                                 print("There was an error calling this URL")
                                 print(err)
-                                file=open('urlError.txt','w')
+                                file=open('/home/pi/Desktop/irrigationSystem/urlError.txt','w')
                                 file.write(str(err))
                                 file.close()
                         resp2=response.decode('utf-8')
@@ -60,7 +60,7 @@ def intervals():
                                 var['stop']=stop
                                 var['start']=begin
                         
-                        with open('data.json','w') as outfile:
+                        with open('/home/pi/Desktop/irrigationSystem/data.json','w') as outfile:
                                 json.dump(var,outfile)
                                 print("wrote to 'data.json'")
                                 outfile.close()
@@ -68,7 +68,7 @@ def intervals():
                         print('asleep')
                         time.sleep(var['sysClock'])
                 except Exception as exp:
-                        file=open('errorReport.txt','w')
+                        file=open('/home/pi/Desktop/irrigationSystem/errorReport.txt','w')
                         file.write(str(exp))
                         file.close()
                         
@@ -76,7 +76,7 @@ def intervals():
 
 #not using this function below
 def fileRead():
-    file=open('data.json','r')
+    file=open('/home/pi/Desktop/irrigationSystem/data.json','r')
     data1=file.read()
     jsonFormat=json.loads(data1)
     print(jsonFormat)

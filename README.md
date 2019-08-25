@@ -1,6 +1,10 @@
 # irrigationSystem
 Raspberry Pi code for automated irrigation system 
 
+MANUAL START UP ==> Trigger script which threads together the system's files
+$ cd ~/Desktop/smartIrrigation
+$ sudo python3.6 plantGroupSmartIrrigation.py
+
 RUN SCRIPT ON BOOTUP 
 $ sudo crontab -e
 @reboot sudo python3.6 /home/pi/Desktop/irrigationSystem/plantGroupSmarrtIrrigation.py &

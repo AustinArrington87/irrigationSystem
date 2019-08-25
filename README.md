@@ -10,7 +10,9 @@ $ sudo python3.6 plantGroupSmartIrrigation.py
 ====================================================
 
 RUN SCRIPT ON BOOTUP ==> Update Pi so that irrigationSystem starts on boot
+
 $ sudo crontab -e
+
 @reboot sudo python3.6 /home/pi/Desktop/irrigationSystem/plantGroupSmarrtIrrigation.py &
 
 

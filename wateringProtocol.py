@@ -49,24 +49,24 @@ def watering():
         try:
         
             try:
-                file1=open('data.json','r')
+                file1=open('/home/pi/Desktop/irrigationSystem/data.json','r')
                 data1=file1.read()
                 config=json.loads(data1) #config contains the json variables from app.plantgroup
                 file1.close()
             except Exception as excep:
-                file3=open('errorWater.txt','w')
+                file3=open('/home/pi/Desktop/irrigationSystem/errorWater.txt','w')
                 file3.write(str(excep))
                 file3.close()
                 print(Fore.RED+"Config error experienced: "+str(excep))
                 print(Style.RESET_ALL)
                 
             try:
-                file2=open('serial.json','r')
+                file2=open('/home/pi/Desktop/irrigationSystem/serial.json','r')
                 data2=file2.read()
                 probeVar=json.loads(data2) #probeVar contains probe variables
                 file2.close()
             except Exception as excep1:
-                file4=open('errorProb.txt','w')
+                file4=open('/home/pi/Desktop/irrigationSystem/errorProb.txt','w')
                 file4.write(str(excep1))
                 file4.close()
                 print(Fore.RED+"Probe error experienced: "+str(excep1))
@@ -135,7 +135,7 @@ def watering():
             time.sleep(config['sysClock'])
             print('awake')
         except Exception as excep2:
-                file4=open('errorHighLevelWater.txt','w')
+                file4=open('/home/pi/Desktop/irrigationSystem/errorHighLevelWater.txt','w')
                 file4.write(str(excep2))
                 file4.close()
                 

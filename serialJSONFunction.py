@@ -65,27 +65,10 @@ def getProbeMoisture():
     endSecond = f"{endTime.second:02d}"
 
     #Active Teralytic Probes
-     
-    #UNIVERSITY OF FLORIDA
-    #organization = 'da0f0bfb-82ad-4a1e-9dfa-a31c93170110'
-    #probes = '0004a30b00214f9c'
-
-    #YARA
-    #organization = 'b7e58cc6-b6ea-41e0-a7a8-7c5703224bfb'
-    #probes = '0004a30b0021651d'
-    #probes = '0004a30b00216f5b'
-
-    #RCD Santa Cruz
-    #organization = '6a42d72c-76db-4359-b7bd-50a4c72c9e6c'
-    #probes = '0004a30b00215aa1'
-
-    #NuWay CoOp
-    #organization = '7e9e3c4b-5bda-474a-848a-609a53a0a197'
-    #probes = '0004a30b002166b0'
     
     #RIL
-    organization = '6b28ee93-cc97-4d7e-9095-20b3d2503fca'
-    probes = '0004a30b002385b3'
+    organization = 'XXXX'
+    probes = 'XXXX'
 
     headers = {
             'Accept': 'application/json',
